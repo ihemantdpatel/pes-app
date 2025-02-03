@@ -1,0 +1,24 @@
+services:
+  api:
+    build: .
+    command: npm run start
+    env_file:
+      - .env
+    ports:
+      - '4000:3000' # Specify the exposed port, we will need this to access the app from local machine
+  local-mysql-db:
+    image: mysql:latest
+    container_name: local-mysql-db
+    platform: linux/x86_64
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: pes
+      MYSQL_USER: pes
+      MYSQL_PASSWORD: password
+    ports:
+      - '3307:3306'
+    volumes:
+      - mysql-data:/var/lib/mysql # change this path as per your preference
+volumes:
+  mysql-data:

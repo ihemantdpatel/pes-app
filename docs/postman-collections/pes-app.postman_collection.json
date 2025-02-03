@@ -1,0 +1,142 @@
+{
+	"info": {
+		"_postman_id": "684c0c78-9fb3-472a-a9ea-8d3796fb3960",
+		"name": "PES",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40695713"
+	},
+	"item": [
+		{
+			"name": "Fetch Orders",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/api/orders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch Freight Schedules",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/api/freight_schedules",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"freight_schedules"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "View Freight Schedule Details",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/freight_schedules/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"freight_schedules",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insert bulk Orders",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n\t{\n\t\t\"OrderNumber\": 1,\n\t\t\"Destination\": \"Windsor\"\n\t},\n\t{\n\t\t\"OrderNumber\": 2,\n\t\t\"Destination\": \"Ottawa\"\n\t},\n\t{\n\t\t\"OrderNumber\": 3,\n\t\t\"Destination\": \"Montreal\"\n\t},\n\t{\n\t\t\"OrderNumber\": 4,\n\t\t\"Destination\": \"Montreal\"\n\t},\n\t{\n\t\t\"OrderNumber\": 5,\n\t\t\"Destination\": \"Ottawa\"\n\t},\n\t{\n\t\t\"OrderNumber\": 6,\n\t\t\"Destination\": \"Ottawa\"\n\t},\n\t{\n\t\t\"OrderNumber\": 7,\n\t\t\"Destination\": \"Windsor\"\n\t},\n\t{\n\t\t\"OrderNumber\": 8,\n\t\t\"Destination\": \"Montreal\"\n\t},\n\t{\n\t\t\"OrderNumber\": 9,\n\t\t\"Destination\": \"Montreal\"\n\t},\n\t{\n\t\t\"OrderNumber\": 10,\n\t\t\"Destination\": \"Windsor\"\n\t},\n\t{\n\t\t\"OrderNumber\": 11,\n\t\t\"Destination\": \"Montreal\"\n\t},\n\t{\n\t\t\"OrderNumber\": 12,\n\t\t\"Destination\": \"Windsor\"\n\t},\n\t{\n\t\t\"OrderNumber\": 13,\n\t\t\"Destination\": \"Ottawa\"\n\t},\n\t{\n\t\t\"OrderNumber\": 14,\n\t\t\"Destination\": \"Montreal\"\n\t},\n\t{\n\t\t\"OrderNumber\": 15,\n\t\t\"Destination\": \"Windsor\"\n\t},\n\t{\n\t\t\"OrderNumber\": 16,\n\t\t\"Destination\": \"Windsor\"\n\t},\n\t{\n\t\t\"OrderNumber\": 17,\n\t\t\"Destination\": \"Montreal\"\n\t},\n\t{\n\t\t\"OrderNumber\": 18,\n\t\t\"Destination\": \"Montreal\"\n\t},\n\t{\n\t\t\"OrderNumber\": 19,\n\t\t\"Destination\": \"Windsor\"\n\t},\n\t{\n\t\t\"OrderNumber\": 20,\n\t\t\"Destination\": \"Montreal\"\n\t},\n\t{\n\t\t\"OrderNumber\": 21,\n\t\t\"Destination\": \"Windsor\"\n\t},\n\t{\n\t\t\"OrderNumber\": 22,\n\t\t\"Destination\": \"Ottawa\"\n\t},\n\t{\n\t\t\"OrderNumber\": 23,\n\t\t\"Destination\": \"Montreal\"\n\t},\n\t{\n\t\t\"OrderNumber\": 24,\n\t\t\"Destination\": \"Ottawa\"\n\t},\n\t{\n\t\t\"OrderNumber\": 25,\n\t\t\"Destination\": \"Montreal\"\n\t},\n\t{\n\t\t\"OrderNumber\": 26,\n\t\t\"Destination\": \"Montreal\"\n\t},\n\t{\n\t\t\"OrderNumber\": 27,\n\t\t\"Destination\": \"Montreal\"\n\t},\n\t{\n\t\t\"OrderNumber\": 28,\n\t\t\"Destination\": \"Windsor\"\n\t},\n\t{\n\t\t\"OrderNumber\": 29,\n\t\t\"Destination\": \"Ottawa\"\n\t},\n\t{\n\t\t\"OrderNumber\": 30,\n\t\t\"Destination\": \"Montreal\"\n\t},\n\t{\n\t\t\"OrderNumber\": 31,\n\t\t\"Destination\": \"Ottawa\"\n\t},\n\t{\n\t\t\"OrderNumber\": 32,\n\t\t\"Destination\": \"Montreal\"\n\t},\n\t{\n\t\t\"OrderNumber\": 33,\n\t\t\"Destination\": \"Ottawa\"\n\t},\n\t{\n\t\t\"OrderNumber\": 34,\n\t\t\"Destination\": \"Montreal\"\n\t},\n\t{\n\t\t\"OrderNumber\": 35,\n\t\t\"Destination\": \"Windsor\"\n\t},\n\t{\n\t\t\"OrderNumber\": 36,\n\t\t\"Destination\": \"Ottawa\"\n\t},\n\t{\n\t\t\"OrderNumber\": 37,\n\t\t\"Destination\": \"Montreal\"\n\t},\n\t{\n\t\t\"OrderNumber\": 38,\n\t\t\"Destination\": \"Montreal\"\n\t},\n\t{\n\t\t\"OrderNumber\": 39,\n\t\t\"Destination\": \"Windsor\"\n\t},\n\t{\n\t\t\"OrderNumber\": 40,\n\t\t\"Destination\": \"Windsor\"\n\t},\n\t{\n\t\t\"OrderNumber\": 41,\n\t\t\"Destination\": \"Montreal\"\n\t},\n\t{\n\t\t\"OrderNumber\": 42,\n\t\t\"Destination\": \"Windsor\"\n\t},\n\t{\n\t\t\"OrderNumber\": 43,\n\t\t\"Destination\": \"Montreal\"\n\t},\n\t{\n\t\t\"OrderNumber\": 44,\n\t\t\"Destination\": \"Montreal\"\n\t},\n\t{\n\t\t\"OrderNumber\": 45,\n\t\t\"Destination\": \"Windsor\"\n\t},\n\t{\n\t\t\"OrderNumber\": 46,\n\t\t\"Destination\": \"Montreal\"\n\t},\n\t{\n\t\t\"OrderNumber\": 47,\n\t\t\"Destination\": \"Windsor\"\n\t},\n\t{\n\t\t\"OrderNumber\": 48,\n\t\t\"Destination\": \"Montreal\"\n\t},\n\t{\n\t\t\"OrderNumber\": 49,\n\t\t\"Destination\": \"Montreal\"\n\t},\n\t{\n\t\t\"OrderNumber\": 50,\n\t\t\"Destination\": \"Montreal\"\n\t},\n\t{\n\t\t\"OrderNumber\": 51,\n\t\t\"Destination\": \"Ottawa\"\n\t},\n\t{\n\t\t\"OrderNumber\": 52,\n\t\t\"Destination\": \"Windsor\"\n\t},\n\t{\n\t\t\"OrderNumber\": 53,\n\t\t\"Destination\": \"Windsor\"\n\t},\n\t{\n\t\t\"OrderNumber\": 54,\n\t\t\"Destination\": \"Montreal\"\n\t},\n\t{\n\t\t\"OrderNumber\": 55,\n\t\t\"Destination\": \"Windsor\"\n\t},\n\t{\n\t\t\"OrderNumber\": 56,\n\t\t\"Destination\": \"Windsor\"\n\t},\n\t{\n\t\t\"OrderNumber\": 57,\n\t\t\"Destination\": \"Montreal\"\n\t},\n\t{\n\t\t\"OrderNumber\": 58,\n\t\t\"Destination\": \"Montreal\"\n\t},\n\t{\n\t\t\"OrderNumber\": 59,\n\t\t\"Destination\": \"Windsor\"\n\t},\n\t{\n\t\t\"OrderNumber\": 60,\n\t\t\"Destination\": \"Montreal\"\n\t},\n\t{\n\t\t\"OrderNumber\": 61,\n\t\t\"Destination\": \"Ottawa\"\n\t},\n\t{\n\t\t\"OrderNumber\": 62,\n\t\t\"Destination\": \"Windsor\"\n\t},\n\t{\n\t\t\"OrderNumber\": 63,\n\t\t\"Destination\": \"Montreal\"\n\t},\n\t{\n\t\t\"OrderNumber\": 64,\n\t\t\"Destination\": \"Montreal\"\n\t},\n\t{\n\t\t\"OrderNumber\": 65,\n\t\t\"Destination\": \"Montreal\"\n\t},\n\t{\n\t\t\"OrderNumber\": 66,\n\t\t\"Destination\": \"Windsor\"\n\t},\n\t{\n\t\t\"OrderNumber\": 67,\n\t\t\"Destination\": \"Ottawa\"\n\t},\n\t{\n\t\t\"OrderNumber\": 68,\n\t\t\"Destination\": \"Montreal\"\n\t},\n\t{\n\t\t\"OrderNumber\": 69,\n\t\t\"Destination\": \"Windsor\"\n\t},\n\t{\n\t\t\"OrderNumber\": 70,\n\t\t\"Destination\": \"Ottawa\"\n\t},\n\t{\n\t\t\"OrderNumber\": 71,\n\t\t\"Destination\": \"Windsor\"\n\t},\n\t{\n\t\t\"OrderNumber\": 72,\n\t\t\"Destination\": \"Montreal\"\n\t},\n\t{\n\t\t\"OrderNumber\": 73,\n\t\t\"Destination\": \"Montreal\"\n\t},\n\t{\n\t\t\"OrderNumber\": 74,\n\t\t\"Destination\": \"Montreal\"\n\t},\n\t{\n\t\t\"OrderNumber\": 75,\n\t\t\"Destination\": \"Ottawa\"\n\t},\n\t{\n\t\t\"OrderNumber\": 76,\n\t\t\"Destination\": \"Ottawa\"\n\t},\n\t{\n\t\t\"OrderNumber\": 77,\n\t\t\"Destination\": \"Windsor\"\n\t},\n\t{\n\t\t\"OrderNumber\": 78,\n\t\t\"Destination\": \"Windsor\"\n\t},\n\t{\n\t\t\"OrderNumber\": 79,\n\t\t\"Destination\": \"Montreal\"\n\t},\n\t{\n\t\t\"OrderNumber\": 80,\n\t\t\"Destination\": \"Windsor\"\n\t},\n\t{\n\t\t\"OrderNumber\": 81,\n\t\t\"Destination\": \"Windsor\"\n\t},\n\t{\n\t\t\"OrderNumber\": 82,\n\t\t\"Destination\": \"Montreal\"\n\t},\n\t{\n\t\t\"OrderNumber\": 83,\n\t\t\"Destination\": \"Ottawa\"\n\t},\n\t{\n\t\t\"OrderNumber\": 84,\n\t\t\"Destination\": \"Montreal\"\n\t},\n\t{\n\t\t\"OrderNumber\": 85,\n\t\t\"Destination\": \"Ottawa\"\n\t},\n\t{\n\t\t\"OrderNumber\": 86,\n\t\t\"Destination\": \"Montreal\"\n\t},\n\t{\n\t\t\"OrderNumber\": 87,\n\t\t\"Destination\": \"Montreal\"\n\t},\n\t{\n\t\t\"OrderNumber\": 88,\n\t\t\"Destination\": \"Windsor\"\n\t},\n\t{\n\t\t\"OrderNumber\": 89,\n\t\t\"Destination\": \"Montreal\"\n\t},\n\t{\n\t\t\"OrderNumber\": 90,\n\t\t\"Destination\": \"Windsor\"\n\t},\n\t{\n\t\t\"OrderNumber\": 91,\n\t\t\"Destination\": \"Ottawa\"\n\t},\n\t{\n\t\t\"OrderNumber\": 92,\n\t\t\"Destination\": \"Windsor\"\n\t},\n\t{\n\t\t\"OrderNumber\": 93,\n\t\t\"Destination\": \"Ottawa\"\n\t},\n\t{\n\t\t\"OrderNumber\": 94,\n\t\t\"Destination\": \"Montreal\"\n\t},\n\t{\n\t\t\"OrderNumber\": 95,\n\t\t\"Destination\": \"Windsor\"\n\t},\n\t{\n\t\t\"OrderNumber\": 96,\n\t\t\"Destination\": \"Windsor\"\n\t},\n\t{\n\t\t\"OrderNumber\": 97,\n\t\t\"Destination\": \"Windsor\"\n\t},\n\t{\n\t\t\"OrderNumber\": 98,\n\t\t\"Destination\": \"Montreal\"\n\t},\n\t{\n\t\t\"OrderNumber\": 99,\n\t\t\"Destination\": \"Windsor\"\n\t},\n\t{\n\t\t\"OrderNumber\": 100,\n\t\t\"Destination\": \"Ottawa\"\n\t},\n\t{\n\t\t\"OrderNumber\": 101,\n\t\t\"Destination\": \"Ottawa\"\n\t},\n\t{\n\t\t\"OrderNumber\": 102,\n\t\t\"Destination\": \"Montreal\"\n\t},\n\t{\n\t\t\"OrderNumber\": 103,\n\t\t\"Destination\": \"Montreal\"\n\t},\n\t{\n\t\t\"OrderNumber\": 104,\n\t\t\"Destination\": \"Montreal\"\n\t},\n\t{\n\t\t\"OrderNumber\": 105,\n\t\t\"Destination\": \"Windsor\"\n\t},\n\t{\n\t\t\"OrderNumber\": 106,\n\t\t\"Destination\": \"Ottawa\"\n\t},\n\t{\n\t\t\"OrderNumber\": 107,\n\t\t\"Destination\": \"Windsor\"\n\t},\n\t{\n\t\t\"OrderNumber\": 108,\n\t\t\"Destination\": \"Ottawa\"\n\t},\n\t{\n\t\t\"OrderNumber\": 109,\n\t\t\"Destination\": \"Ottawa\"\n\t},\n\t{\n\t\t\"OrderNumber\": 110,\n\t\t\"Destination\": \"Windsor\"\n\t},\n\t{\n\t\t\"OrderNumber\": 111,\n\t\t\"Destination\": \"Montreal\"\n\t},\n\t{\n\t\t\"OrderNumber\": 112,\n\t\t\"Destination\": \"Windsor\"\n\t},\n\t{\n\t\t\"OrderNumber\": 113,\n\t\t\"Destination\": \"Ottawa\"\n\t},\n\t{\n\t\t\"OrderNumber\": 114,\n\t\t\"Destination\": \"Montreal\"\n\t},\n\t{\n\t\t\"OrderNumber\": 115,\n\t\t\"Destination\": \"Ottawa\"\n\t},\n\t{\n\t\t\"OrderNumber\": 116,\n\t\t\"Destination\": \"Ottawa\"\n\t},\n\t{\n\t\t\"OrderNumber\": 117,\n\t\t\"Destination\": \"Montreal\"\n\t},\n\t{\n\t\t\"OrderNumber\": 118,\n\t\t\"Destination\": \"Montreal\"\n\t},\n\t{\n\t\t\"OrderNumber\": 119,\n\t\t\"Destination\": \"Windsor\"\n\t},\n\t{\n\t\t\"OrderNumber\": 120,\n\t\t\"Destination\": \"Montreal\"\n\t},\n\t{\n\t\t\"OrderNumber\": 121,\n\t\t\"Destination\": \"Montreal\"\n\t},\n\t{\n\t\t\"OrderNumber\": 122,\n\t\t\"Destination\": \"Ottawa\"\n\t},\n\t{\n\t\t\"OrderNumber\": 123,\n\t\t\"Destination\": \"Windsor\"\n\t},\n\t{\n\t\t\"OrderNumber\": 124,\n\t\t\"Destination\": \"Montreal\"\n\t},\n\t{\n\t\t\"OrderNumber\": 125,\n\t\t\"Destination\": \"Montreal\"\n\t},\n\t{\n\t\t\"OrderNumber\": 126,\n\t\t\"Destination\": \"Ottawa\"\n\t},\n\t{\n\t\t\"OrderNumber\": 127,\n\t\t\"Destination\": \"Ottawa\"\n\t},\n\t{\n\t\t\"OrderNumber\": 128,\n\t\t\"Destination\": \"Windsor\"\n\t},\n\t{\n\t\t\"OrderNumber\": 129,\n\t\t\"Destination\": \"Montreal\"\n\t},\n\t{\n\t\t\"OrderNumber\": 130,\n\t\t\"Destination\": \"Montreal\"\n\t},\n\t{\n\t\t\"OrderNumber\": 131,\n\t\t\"Destination\": \"Windsor\"\n\t},\n\t{\n\t\t\"OrderNumber\": 132,\n\t\t\"Destination\": \"Montreal\"\n\t},\n\t{\n\t\t\"OrderNumber\": 133,\n\t\t\"Destination\": \"Ottawa\"\n\t},\n\t{\n\t\t\"OrderNumber\": 134,\n\t\t\"Destination\": \"Montreal\"\n\t},\n\t{\n\t\t\"OrderNumber\": 135,\n\t\t\"Destination\": \"Windsor\"\n\t},\n\t{\n\t\t\"OrderNumber\": 136,\n\t\t\"Destination\": \"Montreal\"\n\t},\n\t{\n\t\t\"OrderNumber\": 137,\n\t\t\"Destination\": \"Montreal\"\n\t},\n\t{\n\t\t\"OrderNumber\": 138,\n\t\t\"Destination\": \"Ottawa\"\n\t},\n\t{\n\t\t\"OrderNumber\": 139,\n\t\t\"Destination\": \"Ottawa\"\n\t},\n\t{\n\t\t\"OrderNumber\": 140,\n\t\t\"Destination\": \"Montreal\"\n\t},\n\t{\n\t\t\"OrderNumber\": 141,\n\t\t\"Destination\": \"Windsor\"\n\t},\n\t{\n\t\t\"OrderNumber\": 142,\n\t\t\"Destination\": \"Montreal\"\n\t},\n\t{\n\t\t\"OrderNumber\": 143,\n\t\t\"Destination\": \"Windsor\"\n\t},\n\t{\n\t\t\"OrderNumber\": 144,\n\t\t\"Destination\": \"Ottawa\"\n\t},\n\t{\n\t\t\"OrderNumber\": 145,\n\t\t\"Destination\": \"Windsor\"\n\t},\n\t{\n\t\t\"OrderNumber\": 146,\n\t\t\"Destination\": \"Ottawa\"\n\t},\n\t{\n\t\t\"OrderNumber\": 147,\n\t\t\"Destination\": \"Montreal\"\n\t},\n\t{\n\t\t\"OrderNumber\": 148,\n\t\t\"Destination\": \"Ottawa\"\n\t},\n\t{\n\t\t\"OrderNumber\": 149,\n\t\t\"Destination\": \"Ottawa\"\n\t},\n\t{\n\t\t\"OrderNumber\": 150,\n\t\t\"Destination\": \"Ottawa\"\n\t},\n\t{\n\t\t\"OrderNumber\": 151,\n\t\t\"Destination\": \"Montreal\"\n\t},\n\t{\n\t\t\"OrderNumber\": 152,\n\t\t\"Destination\": \"Ottawa\"\n\t},\n\t{\n\t\t\"OrderNumber\": 153,\n\t\t\"Destination\": \"Ottawa\"\n\t},\n\t{\n\t\t\"OrderNumber\": 154,\n\t\t\"Destination\": \"Ottawa\"\n\t},\n\t{\n\t\t\"OrderNumber\": 155,\n\t\t\"Destination\": \"Windsor\"\n\t},\n\t{\n\t\t\"OrderNumber\": 156,\n\t\t\"Destination\": \"Ottawa\"\n\t},\n\t{\n\t\t\"OrderNumber\": 157,\n\t\t\"Destination\": \"Montreal\"\n\t},\n\t{\n\t\t\"OrderNumber\": 158,\n\t\t\"Destination\": \"Montreal\"\n\t},\n\t{\n\t\t\"OrderNumber\": 159,\n\t\t\"Destination\": \"Ottawa\"\n\t},\n\t{\n\t\t\"OrderNumber\": 160,\n\t\t\"Destination\": \"Ottawa\"\n\t},\n\t{\n\t\t\"OrderNumber\": 161,\n\t\t\"Destination\": \"Ottawa\"\n\t},\n\t{\n\t\t\"OrderNumber\": 162,\n\t\t\"Destination\": \"Montreal\"\n\t},\n\t{\n\t\t\"OrderNumber\": 163,\n\t\t\"Destination\": \"Montreal\"\n\t},\n\t{\n\t\t\"OrderNumber\": 164,\n\t\t\"Destination\": \"Montreal\"\n\t},\n\t{\n\t\t\"OrderNumber\": 165,\n\t\t\"Destination\": \"Ottawa\"\n\t},\n\t{\n\t\t\"OrderNumber\": 166,\n\t\t\"Destination\": \"Ottawa\"\n\t},\n\t{\n\t\t\"OrderNumber\": 167,\n\t\t\"Destination\": \"Windsor\"\n\t},\n\t{\n\t\t\"OrderNumber\": 168,\n\t\t\"Destination\": \"Windsor\"\n\t},\n\t{\n\t\t\"OrderNumber\": 169,\n\t\t\"Destination\": \"Montreal\"\n\t},\n\t{\n\t\t\"OrderNumber\": 170,\n\t\t\"Destination\": \"Montreal\"\n\t},\n\t{\n\t\t\"OrderNumber\": 171,\n\t\t\"Destination\": \"Windsor\"\n\t},\n\t{\n\t\t\"OrderNumber\": 172,\n\t\t\"Destination\": \"Ottawa\"\n\t},\n\t{\n\t\t\"OrderNumber\": 173,\n\t\t\"Destination\": \"Windsor\"\n\t},\n\t{\n\t\t\"OrderNumber\": 174,\n\t\t\"Destination\": \"Montreal\"\n\t},\n\t{\n\t\t\"OrderNumber\": 175,\n\t\t\"Destination\": \"Ottawa\"\n\t},\n\t{\n\t\t\"OrderNumber\": 176,\n\t\t\"Destination\": \"Montreal\"\n\t},\n\t{\n\t\t\"OrderNumber\": 177,\n\t\t\"Destination\": \"Ottawa\"\n\t},\n\t{\n\t\t\"OrderNumber\": 178,\n\t\t\"Destination\": \"Montreal\"\n\t},\n\t{\n\t\t\"OrderNumber\": 179,\n\t\t\"Destination\": \"Ottawa\"\n\t},\n\t{\n\t\t\"OrderNumber\": 180,\n\t\t\"Destination\": \"Montreal\"\n\t}\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/orders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insert bulk freight Schedules",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n\t{\n\t\t\"DepartingLocation\": \"Toronto\",\n\t\t\"ArrivalLocation\": \"Montreal\",\n\t\t\"Day\": 1\n\t},\n\t{\n\t\t\"DepartingLocation\": \"Toronto\",\n\t\t\"ArrivalLocation\": \"Montreal\",\n\t\t\"Day\": 2\n\t},\n\t{\n\t\t\"DepartingLocation\": \"Toronto\",\n\t\t\"ArrivalLocation\": \"Montreal\",\n\t\t\"Day\": 3\n\t},\n\t{\n\t\t\"DepartingLocation\": \"Toronto\",\n\t\t\"ArrivalLocation\": \"Ottawa\",\n\t\t\"Day\": 1\n\t},\n\t{\n\t\t\"DepartingLocation\": \"Toronto\",\n\t\t\"ArrivalLocation\": \"Ottawa\",\n\t\t\"Day\": 3\n\t},\n\t{\n\t\t\"DepartingLocation\": \"Toronto\",\n\t\t\"ArrivalLocation\": \"Windsor\",\n\t\t\"Day\": 1\n\t},\n\t{\n\t\t\"DepartingLocation\": \"Toronto\",\n\t\t\"ArrivalLocation\": \"Windsor\",\n\t\t\"Day\": 2\n\t},\n\t{\n\t\t\"DepartingLocation\": \"Toronto\",\n\t\t\"ArrivalLocation\": \"Windsor\",\n\t\t\"Day\": 3\n\t}\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/freight_schedules",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"freight_schedules"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
