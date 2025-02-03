@@ -17,6 +17,9 @@ most effectively
 ```
 .
 |-- tsconfig.json                                       # TypeScript configuration file
+|-- docs                                                # Project Docs
+|   |-- postman-collections                             # Postman collection
+|   |   |-- pes-app.postman_collection.json
 |-- src                                                 # Source code folder
 |   |-- migrations                                      # Database migrations
 |   |   |-- 2024020102-create-freight_schedule.ts
@@ -132,3 +135,12 @@ npm run test
 | POST | `/api/orders` | Bulk Insert Orders |
 | POST | `/api/freight_schedules` | Bulk Insert Freight Schedules |
 | GET | `/api/freight_schedules/:id` | View Freight Schedule with Assigned Orders |
+
+## Postman Collection
+
+This repository includes a Postman collection for easy API testing and documentation.
+
+### Usage
+1. Install [Postman](https://www.postman.com/downloads/).
+2. Import the collection from the `docs/postman-collections/` folder.
+3. Run the requests to interact with the API.
