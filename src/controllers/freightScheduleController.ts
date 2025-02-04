@@ -21,16 +21,7 @@ export const viewFreightScheduleDetails = catchAsync(async (req: Request, res: R
     const { id } = req.params;
     const freightSchedule = await FreightSchedule.findByPk(id);
     if(freightSchedule){
-      const orders : Order[] = await loadOrdersForFreightSchedule(freightSchedule);
-      res.status(200).send({
-          id: freightSchedule.id,
-          DepartingLocation: freightSchedule.DepartingLocation,
-          ArrivalLocation: freightSchedule.ArrivalLocation,
-          Day: freightSchedule.Day,
-          AssignedOrders: orders.map(order => order.OrderNumber),
-          capacity:FREIGHT_CAPACITY,
-          available_slots: FREIGHT_CAPACITY - orders.length
-        });
+      res.status(200).send(freightSchedule);
     }else{
       res.status(404).json({ message: ERROR_MESSAGES.NOT_FOUND});
     }

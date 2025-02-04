@@ -6,6 +6,7 @@ interface OrderAttributes {
   OrderNumber: number;
   Destination: string;
   status: string;
+  freightScheduleId:number;
 
   createdAt?: Date;
   updatedAt?: Date;
@@ -17,6 +18,7 @@ class Order extends Model<OrderAttributes> implements OrderAttributes {
   public OrderNumber!: number;
   public Destination!: string;
   public status!: string;
+  public freightScheduleId!: number;
 
   public readonly updatedAt!: Date;
   public readonly createdAt!: Date;
@@ -42,6 +44,11 @@ Order.init(
       allowNull: false,
       type: DataTypes.ENUM('pending','assigned','cancelled'),
       defaultValue: 'pending',
+    },
+    freightScheduleId: {
+      allowNull: false,
+      type: DataTypes.INTEGER,
+      field: 'freight_schedule_id',
     },
     createdAt: {
       allowNull: false,

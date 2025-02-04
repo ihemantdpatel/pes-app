@@ -3,6 +3,8 @@ import express from 'express'
 import { Express } from 'express'
 import OrderRoutes from './routes/orderRoutes'
 import FreightScheduleRoutes from './routes/freightScheduleRoutes'
+import scheduleOrders from './routes/scheduleOrders'
+import sched from './routes/freightScheduleRoutes'
 import catchAsync from './utils/catchAsync'
 import AppError from './utils/appError'
 import globalErrorHandler from './controllers/errorController'
@@ -15,6 +17,7 @@ app.use(express.json())
 
 app.use('/api/orders', OrderRoutes)
 app.use('/api/freight_schedules', FreightScheduleRoutes)
+app.use('/api', scheduleOrders)
 
 app.use('*',  catchAsync(async () => {
   throw new AppError("no routes found.", 404)

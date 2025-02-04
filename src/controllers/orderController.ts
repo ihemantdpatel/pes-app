@@ -8,7 +8,8 @@ import {
   } from "../utils/constants";
 
 export const getOrders = catchAsync(async (req: Request, res: Response): Promise<void> => {
-    const orders = await getAllOrders()
+    let status = req.query.status as string
+    const orders = await getAllOrders(status)
     res.status(200).send(orders);
 });
 

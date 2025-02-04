@@ -37,7 +37,7 @@ export async function loadOrdersForFreightSchedule(
 export async function getAllFreightSchedules(): Promise<FreightSchedule[]> {
   try {
     return await FreightSchedule.findAll({
-      attributes: ["id", "DepartingLocation", "ArrivalLocation", "Day"],
+      attributes: ["id", "DepartingLocation", "ArrivalLocation", "Day", "Capacity"],
     });
   } catch (error: unknown) {
     throw new AppError((error as Error).message, 400);

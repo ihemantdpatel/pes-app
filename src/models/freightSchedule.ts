@@ -6,6 +6,7 @@ interface FreightScheduleAttributes{
     DepartingLocation: String,
     ArrivalLocation:String,
     Day:number,
+    Capacity:number,
     status: string;
 
     createdAt?: Date,
@@ -19,6 +20,7 @@ class FreightSchedule extends Model<FreightScheduleAttributes> implements Freigh
     public DepartingLocation!: string;
     public ArrivalLocation!: string;
     public Day!: number;
+    public Capacity!: number;
     public status!: string;
 
     public readonly createdAt!: Date
@@ -42,6 +44,10 @@ FreightSchedule.init(
             type: DataTypes.NUMBER
         },
         Day: {
+            allowNull:false,
+            type: DataTypes.NUMBER
+        },
+        Capacity: {
             allowNull:false,
             type: DataTypes.NUMBER
         },

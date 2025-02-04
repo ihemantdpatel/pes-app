@@ -18,10 +18,13 @@ export async function bulkCreateOrders(orders: Order[]): Promise<Order[]> {
   }
 }
 
-export async function getAllOrders(): Promise<Order[]> {
+export async function getAllOrders(status:string | undefined = "pending"): Promise<Order[]> {
   try {
     return await Order.findAll({
-      attributes: ["OrderNumber", "Destination", "Status"],
+      attributes: ["OrderNumber", "Destination", "Status", "freightScheduleId"],
+      where: {
+        status: status,
+      },
     });
   } catch (error: unknown) {
     throw new AppError((error as Error).message, 400);
