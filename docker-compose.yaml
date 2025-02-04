@@ -6,16 +6,25 @@ services:
       - .env
     ports:
       - '4000:3000' # Specify the exposed port, we will need this to access the app from local machine
+    depends_on:
+      local-mysql-db:
+        condition: service_healthy
   local-mysql-db:
     image: mysql:latest
     container_name: local-mysql-db
     platform: linux/x86_64
     restart: always
+    env_file:
+      - .env
     environment:
-      MYSQL_ROOT_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: root_password
       MYSQL_DATABASE: pes
       MYSQL_USER: pes
       MYSQL_PASSWORD: password
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      timeout: 10s
+      retries: 10
     ports:
       - '3307:3306'
     volumes:
