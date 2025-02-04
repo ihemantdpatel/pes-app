@@ -1,6 +1,6 @@
 // Import Express from the node_modules.
 import express from 'express'
-import { Express } from 'express' // Import the right response and request
+import { Express } from 'express'
 import OrderRoutes from './routes/orderRoutes'
 import FreightScheduleRoutes from './routes/freightScheduleRoutes'
 import catchAsync from './utils/catchAsync'
@@ -10,8 +10,6 @@ import { PORT } from './config/config';
 
 // Create a new Express instance
 const app : Express = express()
-
-// Set the port that this app will run on
 
 app.use(express.json())
 
