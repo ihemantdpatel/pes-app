@@ -48,6 +48,7 @@ most effectively
 |   |   |-- orderService.test.ts
 |   |   |-- freightScheduleService.ts
 |   |   |-- freightScheduleService.test.ts
+|   |   |-- transportService.ts
 |   |-- utils                                           # Utility/helper functions
 |       |-- appError.ts
 |       |-- catchAsync.ts
