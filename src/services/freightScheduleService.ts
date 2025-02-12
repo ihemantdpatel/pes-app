@@ -11,7 +11,9 @@ export async function bulkCreateFreightSchedules(
   try {
     const insertedSchedules = await FreightSchedule.bulkCreate(
       freightSchedules,
-      { transaction }
+      { transaction,
+        validate:true
+      },
     );
     await transaction.commit();
     return insertedSchedules;

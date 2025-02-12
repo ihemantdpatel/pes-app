@@ -132,10 +132,12 @@ npm run test
 | Method | Endpoint | Description |
 |--------|---------|-------------|
 | GET | `/api/orders` | Fetch all Orders |
-| GET | `/api/freight_schedules` | Fetch all Freight Schedules |
+| GET | `/api/freight-schedules` | Fetch all Freight Schedules |
 | POST | `/api/orders` | Bulk Insert Orders |
-| POST | `/api/freight_schedules` | Bulk Insert Freight Schedules |
-| GET | `/api/freight_schedules/:id` | View Freight Schedule with Assigned Orders |
+| POST | `/api/freight-schedules` | Bulk Insert Freight Schedules |
+| GET | `/api/freight-schedules/:id` | View Freight Schedule with Assigned Orders |
+| POST | `/api/schedule-orders` | Assign orders to Freight Schedule |
+| GET | `/api/loaded-orders/:freightSchduleId` | View orders loaded on a Freight Schedule |
 
 ## Postman Collection
 

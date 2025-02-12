@@ -45,11 +45,20 @@ FreightSchedule.init(
         },
         Day: {
             allowNull:false,
-            type: DataTypes.NUMBER
+            type: DataTypes.NUMBER,
+            validate: {
+            min: 1, // Must be at least 1
+            max: 7, // Must be at most 7
+            isInt: true, // Must be an integer
+            },
         },
         Capacity: {
             allowNull:false,
-            type: DataTypes.NUMBER
+            type: DataTypes.NUMBER,
+            validate: {
+                min: 1,
+                isInt: true,
+            },
         },
         status: {
           allowNull: false,

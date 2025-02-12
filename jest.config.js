@@ -1,8 +1,8 @@
 module.exports = {
-  roots: ['./src'],
-  transform: {
-    '^.+\\.tsx?$': 'ts-jest',
-  },
-  testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$',
-  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
-}
+  preset: 'ts-jest',
+  testEnvironment: 'node',
+  setupFilesAfterEnv: ['./jest.setup.ts'], // Ensure the correct path
+  verbose: true,
+  clearMocks: true,
+  testTimeout: 10000, // Increases timeout globally to 10 seconds
+};

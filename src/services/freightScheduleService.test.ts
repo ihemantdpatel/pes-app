@@ -13,19 +13,21 @@ const mockFreightSchedules = [
     DepartingLocation: "Toronto",
     ArrivalLocation: "Montreal",
     Day: 1,
+    Capacity:25,
     status: "open",
   }),
   new FreightSchedule({
     DepartingLocation: "Toronto",
     ArrivalLocation: "Montreal",
     Day: 2,
+    Capacity:25,
     status: "open",
   }),
 ];
 
 const mockOrders = [
-  new Order({ OrderNumber: 123, Destination: "Montreal", status: "pending" }),
-  new Order({ OrderNumber: 456, Destination: "Montreal", status: "shipped" }),
+  new Order({ OrderNumber: 123, Destination: "Montreal", status: "pending", freightScheduleId:0 }),
+  new Order({ OrderNumber: 456, Destination: "Montreal", status: "shipped", freightScheduleId:0 }),
 ];
 
 describe("FreightSchedule Service", () => {

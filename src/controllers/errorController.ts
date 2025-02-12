@@ -18,7 +18,6 @@ const sendErrorProd = (err: AppError, res: Response) => {
       message: err.message,
     });
   } else {
-    console.error("ERROR", err);
     res.status(500).json({
       status: "error",
       message: "Something went very wrong!",
@@ -32,10 +31,10 @@ const globalErrorHandler = (
   res: Response,
   next: NextFunction
 ) => {
-  if (NODE_ENV === "development") {
-    sendErrorDev(err, res);
-  } else if (NODE_ENV === "production") {
+  if (NODE_ENV === "production") {
     sendErrorProd(err, res);
+  } else {
+    sendErrorDev(err, res);
   }
 };
 

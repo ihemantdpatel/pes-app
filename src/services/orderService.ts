@@ -8,6 +8,7 @@ export async function bulkCreateOrders(orders: Order[]): Promise<Order[]> {
   try {
     const insertedOrders: Order[] = await Order.bulkCreate(orders, {
       transaction,
+      validate:true
     });
     await transaction.commit(); // Commit the transaction if successful
 

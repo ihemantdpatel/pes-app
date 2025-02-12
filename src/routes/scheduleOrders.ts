@@ -4,7 +4,7 @@ import {scheduleOrdersOnToTheTransport, loadedOrders} from '../controllers/sched
 
 const router : Router = Express.Router()
 
-router.post("/scheduleOrders", scheduleOrdersOnToTheTransport)
-router.get("/loadedOrders/:id", loadedOrders)
+router.post("/schedule-orders", scheduleOrdersOnToTheTransport)
+router.get("/loaded-orders/:id", loadedOrders)
 
 export default router

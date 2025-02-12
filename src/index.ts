@@ -11,19 +11,20 @@ import globalErrorHandler from './controllers/errorController'
 import { PORT } from './config/config';
 
 // Create a new Express instance
-const app : Express = express()
+export const app : Express = express()
 
 app.use(express.json())
 
 app.use('/api/orders', OrderRoutes)
-app.use('/api/freight_schedules', FreightScheduleRoutes)
+app.use('/api/freight-schedules', FreightScheduleRoutes)
 app.use('/api', scheduleOrders)
 
 app.use('*',  catchAsync(async () => {
   throw new AppError("no routes found.", 404)
 }))
 app.use(globalErrorHandler)
-// Start the server
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+
+// Start the server and store the instance
+export const server = app.listen(PORT, async () => {
+  console.log(`🚀 Server running on http://localhost:${PORT}`);
 });

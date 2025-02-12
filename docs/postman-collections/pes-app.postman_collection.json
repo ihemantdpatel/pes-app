@@ -12,15 +12,26 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:4000/api/orders",
+					"raw": "http://localhost:3000/api/orders?status=pending",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "4000",
+					"port": "3000",
 					"path": [
 						"api",
 						"orders"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "pending"
+						},
+						{
+							"key": "freight_schedule_id",
+							"value": null,
+							"disabled": true
+						}
 					]
 				}
 			},
@@ -32,15 +43,15 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:4000/api/freight_schedules",
+					"raw": "http://localhost:3000/api/freight-schedules",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "4000",
+					"port": "3000",
 					"path": [
 						"api",
-						"freight_schedules"
+						"freight-schedules"
 					]
 				}
 			},
@@ -52,7 +63,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/api/freight_schedules/4",
+					"raw": "http://localhost:3000/api/freight_schedules/9",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -61,7 +72,7 @@
 					"path": [
 						"api",
 						"freight_schedules",
-						"4"
+						"9"
 					]
 				}
 			},
@@ -89,12 +100,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:4000/api/orders",
+					"raw": "http://localhost:3000/api/orders",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "4000",
+					"port": "3000",
 					"path": [
 						"api",
 						"orders"
@@ -116,7 +127,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "[\n\t{\n\t\t\"DepartingLocation\": \"Toronto\",\n\t\t\"ArrivalLocation\": \"Montreal\",\n\t\t\"Day\": 1\n\t},\n\t{\n\t\t\"DepartingLocation\": \"Toronto\",\n\t\t\"ArrivalLocation\": \"Montreal\",\n\t\t\"Day\": 2\n\t},\n\t{\n\t\t\"DepartingLocation\": \"Toronto\",\n\t\t\"ArrivalLocation\": \"Montreal\",\n\t\t\"Day\": 3\n\t},\n\t{\n\t\t\"DepartingLocation\": \"Toronto\",\n\t\t\"ArrivalLocation\": \"Ottawa\",\n\t\t\"Day\": 1\n\t},\n\t{\n\t\t\"DepartingLocation\": \"Toronto\",\n\t\t\"ArrivalLocation\": \"Ottawa\",\n\t\t\"Day\": 3\n\t},\n\t{\n\t\t\"DepartingLocation\": \"Toronto\",\n\t\t\"ArrivalLocation\": \"Windsor\",\n\t\t\"Day\": 1\n\t},\n\t{\n\t\t\"DepartingLocation\": \"Toronto\",\n\t\t\"ArrivalLocation\": \"Windsor\",\n\t\t\"Day\": 2\n\t},\n\t{\n\t\t\"DepartingLocation\": \"Toronto\",\n\t\t\"ArrivalLocation\": \"Windsor\",\n\t\t\"Day\": 3\n\t}\n]",
+					"raw": "[\n\t{\n\t\t\"DepartingLocation\": \"Toronto\",\n\t\t\"ArrivalLocation\": \"Montreal\",\n\t\t\"Day\": 1,\n        \"Capacity\":25\n\t},\n\t{\n\t\t\"DepartingLocation\": \"Toronto\",\n\t\t\"ArrivalLocation\": \"Montreal\",\n\t\t\"Day\": 2,\n        \"Capacity\":25\n\t},\n\t{\n\t\t\"DepartingLocation\": \"Toronto\",\n\t\t\"ArrivalLocation\": \"Montreal\",\n\t\t\"Day\": 3,\n        \"Capacity\":25\n\t},\n\t{\n\t\t\"DepartingLocation\": \"Toronto\",\n\t\t\"ArrivalLocation\": \"Ottawa\",\n\t\t\"Day\": 1,\n        \"Capacity\":25\n\t},\n\t{\n\t\t\"DepartingLocation\": \"Toronto\",\n\t\t\"ArrivalLocation\": \"Ottawa\",\n\t\t\"Day\": 3,\n        \"Capacity\":25\n\t},\n\t{\n\t\t\"DepartingLocation\": \"Toronto\",\n\t\t\"ArrivalLocation\": \"Windsor\",\n\t\t\"Day\": 1,\n        \"Capacity\":25\n\t},\n\t{\n\t\t\"DepartingLocation\": \"Toronto\",\n\t\t\"ArrivalLocation\": \"Windsor\",\n\t\t\"Day\": 2,\n        \"Capacity\":25\n\t},\n\t{\n\t\t\"DepartingLocation\": \"Toronto\",\n\t\t\"ArrivalLocation\": \"Windsor\",\n\t\t\"Day\": 3,\n        \"Capacity\":25\n\t}\n]",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -124,15 +135,56 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:4000/api/freight_schedules",
+					"raw": "http://localhost:3000/api/freight-schedules",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "4000",
+					"port": "3000",
 					"path": [
 						"api",
-						"freight_schedules"
+						"freight-schedules"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ScheduleOrders",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/schedule-orders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"schedule-orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "loadedOrders",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/loaded-orders/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"loaded-orders",
+						"5"
 					]
 				}
 			},

@@ -4,8 +4,8 @@ import { expect, jest, beforeAll, describe, it } from "@jest/globals";
 import AppError from "../utils/appError";
 
 const mockOrders = [
-  new Order({ OrderNumber: 123, Destination: "Windsor", status: "pending" }),
-  new Order({ OrderNumber: 456, Destination: "Toronto", status: "shipped" }),
+  new Order({ OrderNumber: 123, Destination: "Windsor", status: "pending", freightScheduleId:0 }),
+  new Order({ OrderNumber: 456, Destination: "Toronto", status: "shipped", freightScheduleId:0 }),
 ];
 
 describe("Order Service", () => {
