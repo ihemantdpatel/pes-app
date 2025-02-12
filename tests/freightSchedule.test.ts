@@ -9,26 +9,23 @@ describe("Freight Schedule API Tests", () => {
   /** ✅ Test: Create a Freight Schedule */
   it("should create a new freight schedule", async () => {
     const response = await request(app).post("/api/freight-schedules").send([{
-      DepartingLocation: "Toronto",
-      ArrivalLocation: "Montreal",
-      Day: 3,
-      Capacity: 100,
-      status: "open",
+        "DepartingLocation": "Toronto",
+        "ArrivalLocation": "Montreal",
+        "Day": 1,
+        "Capacity": 25
     }]);
-
     expect(response.status).toBe(201);
   });
 
   /** ✅ Test: Fetch All Freight Schedules */
   it("should get all freight schedules", async () => {
     await FreightSchedule.create({
-        DepartingLocation: "Toronto",
-        ArrivalLocation: "Montreal",
-        Day: 3,
+        scheduleId: 3,
         Capacity: 25,
         status: "open",
       });
     const response = await request(app).get("/api/freight-schedules");
+    console.log(response.body)
     expect(response.status).toBe(200);
     expect(response.body.length).toBeGreaterThan(0);
   });
@@ -36,13 +33,12 @@ describe("Freight Schedule API Tests", () => {
   /** ✅ Test: Fetch a Single Freight Schedule */
   it("should get details of a specific freight schedule", async () => {
     const freightSchedule = await FreightSchedule.create({
-        DepartingLocation: "Toronto",
-        ArrivalLocation: "Montreal",
-        Day: 3,
+        scheduleId: 3,
         Capacity: 25,
         status: "open",
       });
     const response = await request(app).get(`/api/freight-schedules/${freightSchedule.id}`);
+    console.log(response.body)
     expect(response.status).toBe(200);
     expect(response.body.id).toBe(freightSchedule.id);
   });

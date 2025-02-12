@@ -22,7 +22,8 @@ module.exports = {
                 type: DataTypes.INTEGER
             },
             status: {
-              type: DataTypes.ENUM('open','closed')
+              type: DataTypes.ENUM('open','closed'),
+              defaultValue: 'open'
             },
             createdAt: {
                 allowNull: false,

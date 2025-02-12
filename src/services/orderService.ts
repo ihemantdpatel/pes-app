@@ -14,6 +14,7 @@ export async function bulkCreateOrders(orders: Order[]): Promise<Order[]> {
 
     return insertedOrders;
   } catch (error: unknown) {
+    console.log(error)
     await transaction.rollback(); // Rollback the transaction on error
     throw new AppError((error as Error).message, 400);
   }

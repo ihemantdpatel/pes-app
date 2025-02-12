@@ -4,16 +4,19 @@ module.exports = {
   async up (queryInterface: QueryInterface, Sequelize: typeof DataTypes) {
       await queryInterface.addColumn(
         'freight_schedules',
-        'capacity',
+        'schedule_id',
         {
           allowNull:false,
-          type: DataTypes.INTEGER,
-          defaultValue:0,
+          type: DataTypes.INTEGER
         }
-      )
+      );
+      await queryInterface.addIndex("freight_schedules", ["schedule_id"], {
+        name: "freight_schedules_schedule_id_index",
+        unique: false,
+      });
   },
 
   async down (queryInterface: QueryInterface, Sequelize: typeof DataTypes) {
-    await queryInterface.removeColumn('freight_schedules','capacity')
+    queryInterface.removeColumn('freight_schedules','schedule_id')
   }
 };

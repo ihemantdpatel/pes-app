@@ -5,6 +5,7 @@ import {
 import FreightSchedule from "../models/freightSchedule";
 import Order from "../models/order";
 import { Op } from "sequelize";
+import Schedule from '../models/schedule'
 
 const getOrderCount = async (
   status: string = DEFAULT_ORDER_STATUS,
@@ -29,19 +30,19 @@ const getOrderCount = async (
 };
 
 export const fetchNextBatchOfOrders = async (
-  schedule: FreightSchedule
+  freightSchedule: FreightSchedule
 ): Promise<Order[]> => {
-  if (schedule.Capacity <= 0) return []; // Early exit if no capacity
+  if (freightSchedule.Capacity <= 0) return []; // Early exit if no capacity
 
-  const remaining_capacity = schedule.Capacity -
-    (await getOrderCount(ASSIGNED_ORDER_STATUS, schedule.id));
+  const remaining_capacity = freightSchedule.Capacity -
+    (await getOrderCount(ASSIGNED_ORDER_STATUS, freightSchedule.id));
 
   if (remaining_capacity <= 0) return []; // No remaining capacity, avoid unnecessary DB call
-
+  if(!freightSchedule.schedule) return [];
   return Order.findAll({
     where: {
       status: DEFAULT_ORDER_STATUS,
-      Destination: schedule.ArrivalLocation,
+      Destination: freightSchedule.schedule.destination,
     },
     order: [["OrderNumber", "ASC"]],
     limit: remaining_capacity,
@@ -55,18 +56,23 @@ export const loadAllOrders = async (): Promise<{
 }> => {
   let loaded_orders = 0;
   let data = [];
-  const shedules = await FreightSchedule.findAll({
+  const freightSchedules = await FreightSchedule.findAll({
     attributes: [
       "id",
-      "DepartingLocation",
-      "ArrivalLocation",
-      "Day",
+      "scheduleId",
       "Capacity",
+    ],
+    include: [
+      {
+        model: Schedule,
+        as: "schedule", // Use alias defined in association
+        attributes: ["id", "day", "origin", "destination"], // Select required fields
+      },
     ],
   });
 
-  for (const schedule of shedules) {
-    const orders = await fetchNextBatchOfOrders(schedule);
+  for (const freightSchedule of freightSchedules) {
+    const orders = await fetchNextBatchOfOrders(freightSchedule);
 
     if (orders && orders.length > 0) {
       const order_ids = orders.map((order) => order.id);
@@ -74,7 +80,7 @@ export const loadAllOrders = async (): Promise<{
       await Order.update(
         {
           status: "assigned",
-          freightScheduleId: schedule.id,
+          freightScheduleId: freightSchedule.id,
         },
         {
           where: {

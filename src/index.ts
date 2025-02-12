@@ -4,11 +4,12 @@ import { Express } from 'express'
 import OrderRoutes from './routes/orderRoutes'
 import FreightScheduleRoutes from './routes/freightScheduleRoutes'
 import scheduleOrders from './routes/scheduleOrders'
-import sched from './routes/freightScheduleRoutes'
 import catchAsync from './utils/catchAsync'
 import AppError from './utils/appError'
 import globalErrorHandler from './controllers/errorController'
 import { PORT } from './config/config';
+import { loadSchedulesIntoCache } from "./services/scheduleCache";
+import connection from "./config/database";
 
 // Create a new Express instance
 export const app : Express = express()
@@ -26,5 +27,6 @@ app.use(globalErrorHandler)
 
 // Start the server and store the instance
 export const server = app.listen(PORT, async () => {
-  console.log(`🚀 Server running on http://localhost:${PORT}`);
+  await connection.authenticate()
+  await loadSchedulesIntoCache();
 });

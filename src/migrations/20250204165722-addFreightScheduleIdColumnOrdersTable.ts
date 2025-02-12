@@ -2,7 +2,7 @@ import { QueryInterface, DataTypes, literal } from "sequelize";
 
 module.exports = {
   async up (queryInterface:QueryInterface, Sequelize:typeof DataTypes) {
-    queryInterface.addColumn(
+    await queryInterface.addColumn(
       'orders',
       'freight_schedule_id',
       {
@@ -13,6 +13,6 @@ module.exports = {
   },
 
   async down (queryInterface:QueryInterface, Sequelize:typeof DataTypes) {
-    queryInterface.removeColumn('orders','freight_schedule_id');
+    await queryInterface.removeColumn('orders','freight_schedule_id');
   }
 };

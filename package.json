@@ -8,7 +8,7 @@
     "dev": "nodemon ./src/index.ts",
     "start": "node ./dist/index",
     "db:up": "docker-compose up -d",
-    "test": "NODE_ENV=test && jest --no-cache --maxWorkers=1 --forceExit",
+    "test": "NODE_ENV=test && jest --runInBand --forceExit",
     "db:create": "npx sequelize-cli db:create",
     "db:migrate": "npx sequelize-cli db:migrate",
     "db:migrate:undo": "npx sequelize-cli db:migrate:undo",

@@ -6,6 +6,8 @@ services:
       - .env
     ports:
       - '4000:3000' # Specify the exposed port, we will need this to access the app from local machine
+    networks:
+        - app_net
     depends_on:
       local-mysql-db:
         condition: service_healthy
@@ -23,9 +25,15 @@ services:
       timeout: 10s
       retries: 10
     ports:
-      - '3307:3306'
+      - '3308:3306'
+    networks:
+        - app_net
     volumes:
       - mysql-data:/var/lib/mysql # change this path as per your preference
       - ./mysql-init.sql:/docker-entrypoint-initdb.d/init.sql  # Load init script
 volumes:
   mysql-data:
+
+networks:
+    app_net:
+        driver: "bridge"

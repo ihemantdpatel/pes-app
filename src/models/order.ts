@@ -46,9 +46,10 @@ Order.init(
       defaultValue: 'pending',
     },
     freightScheduleId: {
-      allowNull: false,
+      allowNull: true,
       type: DataTypes.INTEGER,
       field: 'freight_schedule_id',
+      defaultValue: null,
     },
     createdAt: {
       allowNull: false,
