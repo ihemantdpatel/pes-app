@@ -30,4 +30,5 @@ RUN npm install
 COPY --from=builder /usr/src/app/dist ./dist
 
 EXPOSE 8080
-CMD [ "node", "dist/index.js" ]
+# Run migrations, seed database, then start the server
+CMD ["sh", "-c", "npm run db:migrate && npm run db:seed && npm start"]

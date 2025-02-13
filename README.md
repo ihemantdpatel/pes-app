@@ -53,6 +53,15 @@ most effectively
 |       |-- appError.ts
 |       |-- catchAsync.ts
 |       |-- constants.ts
+|   |-- tests                                           # End to End Integrations tests
+|       |-- driverAssignment.test.ts
+|       |-- drivers.test.ts
+|       |-- freightSchedule.test.ts
+|       |-- orders.test.ts
+|       |-- scheduleOrders.test.ts
+|       |-- orders.json                                 # Sample Orders Data
+|       |-- freight_schedule.json                       # Sample FreightSchedule Data
+|       |-- drivers.json                                # Sample Drivers Data
 |-- docker-compose.yaml                                 # Docker Compose configuration
 |-- Dockerfile                                          # Dockerfile for containerization
 |-- package.json                                        # Node.js package configuration
@@ -104,7 +113,7 @@ Run migrations to set up the database schema:
 docker exec -it pes-app-api /bin/bash
 npm run db:migrate
 ```
-(Optional) Seed initial data:
+Seed initial data (Schedules data):
 ```sh
 npm run db:seed
 ```
@@ -128,16 +137,23 @@ To execute tests, run:
 npm run test
 ```
 
+![Test Coverage Report](docs/test-coverage-report.png)
+
 ## 📜 API Endpoints
 | Method | Endpoint | Description |
 |--------|---------|-------------|
 | GET | `/api/orders` | Fetch all Orders |
 | GET | `/api/freight-schedules` | Fetch all Freight Schedules |
+| GET | `/api/drivers` | Fetch all Drivers |
 | POST | `/api/orders` | Bulk Insert Orders |
+| POST | `/api/drivers` | Bulk Insert Drivers |
 | POST | `/api/freight-schedules` | Bulk Insert Freight Schedules |
-| GET | `/api/freight-schedules/:id` | View Freight Schedule with Assigned Orders |
+| GET | `/api/freight-schedules/:id` | View Freight Schedule Details |
 | POST | `/api/schedule-orders` | Assign orders to Freight Schedule |
 | GET | `/api/loaded-orders/:freightSchduleId` | View orders loaded on a Freight Schedule |
+| GET | `/api/freight-schedules/details` | View Freight Schedule with Orders and Drivers |
+| POST | `/api/drivers/assign` | Assign drivers to Freight Schedule |
+| POST | `/api/freight-schedules/:freightScheduleId/emergency-driver` | Emergency Driver Assignment |
 
 ## Postman Collection
 

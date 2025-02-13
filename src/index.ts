@@ -4,7 +4,6 @@ import { Express } from 'express'
 import OrderRoutes from './routes/orderRoutes'
 import DriverRoutes from './routes/drivers'
 import FreightScheduleRoutes from './routes/freightScheduleRoutes'
-import FreightScheduleDriversRoutes from './routes/freightScheduleDrivers'
 import scheduleOrders from './routes/scheduleOrders'
 import catchAsync from './utils/catchAsync'
 import AppError from './utils/appError'
@@ -21,7 +20,6 @@ app.use(express.json())
 app.use('/api/orders', OrderRoutes)
 app.use('/api/freight-schedules', FreightScheduleRoutes)
 app.use('/api/drivers', DriverRoutes)
-app.use('/api/freight-driver-orders', FreightScheduleDriversRoutes)
 app.use('/api', scheduleOrders)
 
 app.use('*',  catchAsync(async () => {
@@ -33,4 +31,10 @@ app.use(globalErrorHandler)
 export const server = app.listen(PORT, async () => {
   await connection.authenticate()
   await loadSchedulesIntoCache();
+});
+
+// Keep process alive
+process.on("SIGTERM", () => {
+  console.log("Shutting down gracefully...");
+  server.close(() => process.exit(0));
 });
