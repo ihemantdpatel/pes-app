@@ -78,7 +78,7 @@
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/schedule-orders",
+							"raw": "http://localhost:3000/api/drivers/assign",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -86,7 +86,8 @@
 							"port": "3000",
 							"path": [
 								"api",
-								"schedule-orders"
+								"drivers",
+								"assign"
 							]
 						}
 					},
