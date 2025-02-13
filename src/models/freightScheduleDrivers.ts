@@ -71,7 +71,7 @@ FreightScheduleDriver.init(
     status: {
         allowNull: true,
         type: DataTypes.ENUM("assigned", "completed","cancelled"),
-        defaultValue: "active",
+        defaultValue: "assigned",
     },
     createdAt: {
       allowNull: false,

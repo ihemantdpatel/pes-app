@@ -22,7 +22,7 @@ module.exports = {
         type: DataTypes.INTEGER
       },
       status: {
-        type: DataTypes.ENUM('active','inactive')
+        type: DataTypes.ENUM('assigned','completed','cancelled')
       },
       createdAt: {
         allowNull: false,

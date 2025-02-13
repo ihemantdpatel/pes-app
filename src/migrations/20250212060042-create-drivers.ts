@@ -14,7 +14,7 @@ module.exports = {
         type: DataTypes.STRING
       },
       status: {
-        type: DataTypes.ENUM('active','inactive')
+        type: DataTypes.ENUM('available','in-transit','unavailable')
       },
       createdAt: {
         allowNull: false,

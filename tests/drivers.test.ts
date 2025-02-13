@@ -39,7 +39,7 @@ describe("Drivers API Integration Tests", () => {
         expect(Array.isArray(response.body)).toBe(true);
         expect(response.body.length).toBeGreaterThanOrEqual(1);
         expect(response.body[0].name).toBe('Anne')
-        expect(response.body[0].status).toBe('active')
+        expect(response.body[0].status).toBe('available')
         expect(response.body[0].driverSchedules[0].scheduleDetails.day).toBe(1)
         expect(response.body[0].driverSchedules[1].scheduleDetails.day).toBe(3)
 
@@ -57,7 +57,7 @@ describe("Drivers API Integration Tests", () => {
         expect(Array.isArray(response.body)).toBe(true);
         expect(response.body.length).toBeGreaterThanOrEqual(1);
         expect(response.body[0].name).toBe('Anne')
-        expect(response.body[0].status).toBe('active')
+        expect(response.body[0].status).toBe('available')
         expect(response.body[0].driverSchedules[0].scheduleDetails.day).toBe(1)
         expect(response.body[0].driverSchedules[1].scheduleDetails.day).toBe(3)
     });

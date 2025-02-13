@@ -45,7 +45,7 @@ Driver.init(
     status: {
       allowNull: true,
       type: DataTypes.ENUM("available", "in-transit", "unavailable"),
-      defaultValue: "active",
+      defaultValue: "available",
     },
     createdAt: {
       allowNull: false,

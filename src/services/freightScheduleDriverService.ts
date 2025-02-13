@@ -17,12 +17,12 @@ interface nextAvailableDriver {
 
 const getNextAvailableDriver = async (
   freightScheduleId: number,
-  driverId:number
+  driverId: number
 ): Promise<nextAvailableDriver | null> => {
   const query = `
         SELECT d.id, d.name, MIN(ABS(s.day - sch.day)) AS next_available_day
 FROM drivers d
-JOIN drivers_schedules ds ON d.id = ds.driver_id and d.id <> ${driverId}
+JOIN drivers_schedules ds ON d.id = ds.driver_id and d.id <> ${driverId} and d.status = 'available'
 JOIN schedules s ON ds.schedule_id = s.id
 JOIN freight_schedules fs ON fs.id = ${freightScheduleId}
 JOIN schedules sch ON fs.schedule_id = sch.id
@@ -135,6 +135,11 @@ export async function assignDriversToFreightSchedule(): Promise<void> {
         assignedDriverIds.push(drivers[0].driver.id);
       }
     }
+    // Update Drives status to in-transit
+    const [updatedRows] = await Driver.update(
+      { status: "in-transit" },
+      { where: { id: assignedDriverIds } }
+    );
     await transaction.commit();
   } catch (error) {
     await transaction.rollback();
@@ -169,9 +174,22 @@ export async function assignEmergencyDriversToFreightSchedule(
     });
     if (freightScheduleDriver) {
       // Fetch available drivers
-      const result = await getNextAvailableDriver(freightSchedule.id, freightScheduleDriver.driverId);
+      const result = await getNextAvailableDriver(
+        freightSchedule.id,
+        freightScheduleDriver.driverId
+      );
       if (result) {
+        // Update Drives status to Available
+        await Driver.update(
+          { status: "available" },
+          { where: { id: freightScheduleDriver.driverId } }
+        );
         await freightScheduleDriver.update({ driverId: result.id });
+        // Update Drives status to in-transit
+        await Driver.update(
+          { status: "in-transit" },
+          { where: { id: result.id } }
+        );
       } else {
         throw new AppError("No driver replacement found", 500);
       }

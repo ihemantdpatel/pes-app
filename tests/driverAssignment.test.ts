@@ -75,7 +75,7 @@ describe("Driver Assignment", () => {
         for(let i=0;i<driver_assignments.body.length;i++){
             expect(driver_assignments.body[i].freightSchedule).not.toBeNull()
         }
-        const emergencyResposne = await emergencyDriverAssignment(driver_assignments.body[0].freightSchedule.id)
+        const emergencyResposne = await emergencyDriverAssignment(driver_assignments.body[2].freightSchedule.id)
         expect(emergencyResposne.status).toBe(200)
     });
     it("Successful Emergency Assignment", async () => {
