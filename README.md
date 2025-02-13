@@ -20,13 +20,22 @@ most effectively
 |-- docs                                                # Project Docs
 |   |-- postman-collections                             # Postman collection
 |   |   |-- pes-app.postman_collection.json
+|   |   |-- pes-app-erd.svg
+|   |   |-- pes-erd-mermaid.mmd
+|   |   |-- test-coverage-report.png
 |-- src                                                 # Source code folder
 |   |-- migrations                                      # Database migrations
 |   |   |-- 2024020102-create-freight_schedule.ts
-|   |   |-- 2024020101-create-order.ts
+|   |   |-- 20250204165722-addFreightScheduleIdColumnOrdersTable.ts
+|   |   |-- 20250204183232-addCapacityToFreightSchedule.ts
+|   |   |-- 20250212035011-create-schedules.ts
+|   |   |-- 20250212060040-add-schedule-id-freight-schedules-table.ts
+|   |   |-- 20250212060041-remove-columns-from-freight-schedules.ts
+|   |   |-- 20250212060042-create-drivers.ts
+|   |   |-- 20250212060043-create-drivers-schedules.ts
+|   |   |-- 20250212060044-create-freight-schedules-drivers.ts
 |   |-- seeders                                          # Database seeders (initial data population)
-|   |   |-- 20250201225715-demo_orders.ts
-|   |   |-- 20250201225721-demo_freight_schedules.ts
+|   |   |-- 20250212035332-schedules.ts
 |   |-- index.ts                                        # Entry point of the application
 |   |-- routes                                          # API route definitions
 |   |   |-- orderRoutes.ts
@@ -39,15 +48,22 @@ most effectively
 |   |   |-- orderController.ts
 |   |   |-- errorController.ts
 |   |   |-- freightScheduleController.ts
+|   |   |-- driverController.ts
+|   |   |-- freightScheduleDriverController.ts
+|   |   |-- scheduleOrderController.ts
 |   |-- models                                          # Sequelize models (database schemas)
 |   |   |-- index.ts
 |   |   |-- order.ts
+|   |   |-- driver.ts
+|   |   |-- driverSchedule.ts
 |   |   |-- freightSchedule.ts
+|   |   |-- freightScheduleDrivers.ts
 |   |-- services                                        # Business logic layer
 |   |   |-- orderService.ts
-|   |   |-- orderService.test.ts
+|   |   |-- driverServices.ts
 |   |   |-- freightScheduleService.ts
-|   |   |-- freightScheduleService.test.ts
+|   |   |-- freightScheduleDriverService.ts
+|   |   |-- scheduleCache.ts
 |   |   |-- transportService.ts
 |   |-- utils                                           # Utility/helper functions
 |       |-- appError.ts
