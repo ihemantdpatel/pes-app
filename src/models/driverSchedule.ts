@@ -1,32 +1,31 @@
 import { Model, DataTypes } from "sequelize";
 import connection from "../config/database";
 import Schedule from "./schedule"; // Import the related model
-import Order from './order'
+import Driver from "./driver";
 
-export interface FreightScheduleAttributes {
+export interface DriverScheduleAttributes {
   id?: number;
   scheduleId: number;
-  Capacity: number;
-  status: string;
+  driverId: number;
   createdAt?: Date;
   updatedAt?: Date;
-  deletedAt?: Date;
   schedule?: Schedule
+  driver?: Driver;
 }
 
-// Define the FreightSchedule model
-class FreightSchedule extends Model<FreightScheduleAttributes> implements FreightScheduleAttributes {
+// Define the DriverSchedule model
+class DriverSchedule extends Model<DriverScheduleAttributes> implements DriverScheduleAttributes {
   public id!: number;
   public scheduleId!: number;
-  public Capacity!: number;
-  public status!: string;
+  public driverId!: number;
   public readonly createdAt!: Date;
   public readonly updatedAt!: Date;
   public schedule?: Schedule;
+  public driver?: Driver;
 }
 
 // Initialize the model
-FreightSchedule.init(
+DriverSchedule.init(
   {
     id: {
       allowNull: false,
@@ -40,18 +39,11 @@ FreightSchedule.init(
       field: "schedule_id",
       defaultValue: null,
     },
-    Capacity: {
-      allowNull: false,
-      type: DataTypes.INTEGER,
-      validate: {
-        min: 1,
-        isInt: true,
-      },
-    },
-    status: {
-      allowNull: false,
-      type: DataTypes.ENUM("open", "closed"),
-      defaultValue: "open",
+    driverId: {
+        allowNull: true,
+        type: DataTypes.INTEGER,
+        field: "driver_id",
+        defaultValue: null,
     },
     createdAt: {
       allowNull: false,
@@ -68,19 +60,20 @@ FreightSchedule.init(
   },
   {
     sequelize: connection,
-    tableName: "freight_schedules",
-    modelName: "FreightSchedule",
+    tableName: "drivers_schedules",
+    modelName: "DriverSchedule",
     freezeTableName: true,
   }
 );
 
 // Define the association
-FreightSchedule.belongsTo(Schedule, {
+DriverSchedule.belongsTo(Schedule, {
   foreignKey: "scheduleId",
   as: "schedule", // Alias for the association
 });
-// FreightSchedules has many Orders
-FreightSchedule.hasMany(Order, { foreignKey: "freightScheduleId", as: "orders" });
-Order.belongsTo(FreightSchedule, { foreignKey: "freightScheduleId", as: "freightSchedule" });
 
-export default FreightSchedule;
+// Schedules has many DriverSchedules
+Schedule.hasMany(DriverSchedule, { foreignKey: "scheduleId", as: "driverSchedules" });
+DriverSchedule.belongsTo(Schedule, { foreignKey: "scheduleId", as: "scheduleDetails" });
+
+export default DriverSchedule;

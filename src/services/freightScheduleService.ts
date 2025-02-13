@@ -20,7 +20,7 @@ const getFreightSchedules = (data: FreightScheduleData[]): any => {
     if(!schedule) throw new AppError("No schedule available for this day", 400)
 
     return {
-      scheduleId:schedule.id, // Optionally keeping scheduleId if needed separately
+      scheduleId:schedule.id,
       Capacity: freightSchedule.Capacity,
     };
   });
@@ -71,8 +71,8 @@ export async function getAllFreightSchedules(): Promise<FreightSchedule[]> {
       include: [
         {
           model: Schedule,
-          as: "schedule", // Use alias defined in association
-          attributes: ["day", "origin", "destination"], // Select required fields
+          as: "schedule",
+          attributes: ["day", "origin", "destination"],
         },
       ],
     });

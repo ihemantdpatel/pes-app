@@ -1,0 +1,61 @@
+erDiagram
+    Schedules {
+        INT id PK
+        INT day "Day of the week\n(1=Monday, 7=Sunday)"
+        STRING origin "Currently fixed to: Toronto (configurable in future)"
+        STRING destination "Dynamic (varies per schedule)"
+        TIMESTAMP created
+        TIMESTAMP updated
+    }
+
+    FreightSchedules {
+        INT id PK
+        INT schedule_id FK "Links to Schedules.id"
+        INT capacity
+        ENUM status "OPEN, CLOSED"
+        TIMESTAMP created
+        TIMESTAMP updated
+    }
+
+    Drivers {
+        INT id PK
+        STRING name UK
+        ENUM status "AVAILABLE, IN_TRANSIT, UNAVAILABLE"
+        TIMESTAMP created
+        TIMESTAMP updated
+    }
+
+    DriverSchedules {
+        INT id PK
+        INT driver_id FK "Links to Drivers.id"
+        INT schedule_id FK "Links to Schedules.id"
+        TIMESTAMP created
+        TIMESTAMP updated
+    }
+
+    FreightSchedulesDrivers {
+        INT id PK
+        INT freight_schedule_id FK "Links to FreightSchedules.id"
+        INT driver_id FK "Links to Drivers.id"
+        INT schedule_id FK "Denormalized for quick lookups (reduces JOINs)"
+        ENUM status "ASSIGNED, COMPLETED, CANCELED"
+        TIMESTAMP created
+        TIMESTAMP updated
+    }
+
+    Orders {
+        INT id PK
+        INT order_number UK "Unique order reference"
+        ENUM status "PENDING, IN_TRANSIT,CANCELLED,DELIVERED"
+        INT freight_schedule_id FK "Links to FreightSchedules.id"
+        TIMESTAMP created
+        TIMESTAMP updated
+    }
+
+    %% Associations
+    Schedules ||--o{ FreightSchedules : "has"
+    Schedules ||--o{ DriverSchedules : "has"
+    FreightSchedules ||--o{ Orders : "contains"
+    FreightSchedules ||--o{ FreightSchedulesDrivers : "assigned to"
+    Drivers ||--o{ FreightSchedulesDrivers : "assigned to"
+    Drivers ||--o{ DriverSchedules : "follows"

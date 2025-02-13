@@ -16,7 +16,7 @@ const generateCacheKey = (day: number, origin: string, destination: string): str
 export const loadSchedulesIntoCache = async () => {
   const schedules: Schedule[] = await Schedule.findAll({
     attributes: ["id", "day", "origin", "destination"],
-    raw: true, // Get plain objects instead of Sequelize models
+    raw: true, // Get plain objects
   });
 
   // Reset the cache

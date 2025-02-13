@@ -39,7 +39,7 @@ export const fetchNextBatchOfOrders = async (
 
   if (remaining_capacity <= 0) return []; // No remaining capacity, avoid unnecessary DB call
   if(!freightSchedule.schedule) return [];
-  return Order.findAll({
+  return await Order.findAll({
     where: {
       status: DEFAULT_ORDER_STATUS,
       Destination: freightSchedule.schedule.destination,

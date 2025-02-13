@@ -42,7 +42,7 @@ Order.init(
     },
     status: {
       allowNull: false,
-      type: DataTypes.ENUM('pending','assigned','cancelled'),
+      type: DataTypes.ENUM('pending','in-transit','cancelled','delivered'),
       defaultValue: 'pending',
     },
     freightScheduleId: {

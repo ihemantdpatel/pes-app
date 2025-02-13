@@ -1,0 +1,52 @@
+[
+    {
+        "name": "Anne",
+        "destination": "Montreal",
+        "days": [
+            1,
+            3
+        ]
+    },
+    {
+        "name": "Beck",
+        "destination": "Ottawa",
+        "days": [
+            1,
+            4
+        ]
+    },
+    {
+        "name": "Carl",
+        "destination": "Windsor",
+        "days": [
+            1,
+            2,
+            4
+        ]
+    },
+    {
+        "name": "Dee",
+        "destination": "Montreal",
+        "days": [
+            2,
+            4
+        ]
+    },
+    {
+        "name": "Earl",
+        "destination": "Ottawa",
+        "days": [
+            1,
+            2,
+            5
+        ]
+    },
+    {
+        "name": "Fran",
+        "destination": "Windsor",
+        "days": [
+            1,
+            3
+        ]
+    }
+]
